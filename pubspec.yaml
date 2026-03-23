@@ -1,7 +1,13 @@
 name: error_guard
 description: "Dart's standard exception handling."
 version: 1.0.0
-homepage:
+homepage: https://github.com/minhuits/error_guard
+topics:
+  - error-handling
+  - exceptions
+  - logging
+  - utilities
+  - validation
 
 environment:
   sdk: ^3.11.1
