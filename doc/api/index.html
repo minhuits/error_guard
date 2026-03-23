@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, height=device-height, initial-scale=1, user-scalable=no" name="viewport">
+    <meta content="error_guard API docs, for the Dart programming language." name="description">
+    <title>error_guard - Dart API docs</title>
+
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+          rel="stylesheet">
+
+    <link href="static-assets/github.css?v1" rel="stylesheet">
+    <link href="static-assets/styles.css?v1" rel="stylesheet">
+    <link href="static-assets/favicon.png?v1" rel="icon">
+
+</head>
+
+<body class="light-theme" data-base-href="" data-using-base-href="false">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+    <span class="material-symbols-outlined" id="sidenav-left-toggle" role="button" tabindex="0">menu</span>
+    <ol class="breadcrumbs gt-separated dark hidden-xs">
+        <li class="self-crumb">error_guard package</li>
+    </ol>
+    <div class="self-name">error_guard</div>
+    <form class="search navbar-right" role="search">
+        <input autocomplete="off" class="form-control typeahead" disabled id="search-box" placeholder="Loading search..."
+               type="text">
+    </form>
+    <button aria-label="Light and dark mode toggle" class="toggle" id="theme-button"
+            title="Toggle between light and dark mode">
+    <span aria-hidden="true" class="material-symbols-outlined" id="dark-theme-button">
+      dark_mode
+    </span>
+        <span aria-hidden="true" class="material-symbols-outlined" id="light-theme-button">
+      light_mode
+    </span>
+    </button>
+</header>
+<main>
+    <div class="main-content" id="dartdoc-main-content">
+
+        <section class="desc markdown">
+            <p>Here is the refined English README. I have polished the terminology, improved the formatting for better
+                readability, and
+                ensured all code snippets strictly follow the <code>locale: null</code> requirement.</p>
+            <h1 id="error-guard-">Error Guard 🛡️</h1>
+            <p><code>error_guard</code> is a professional error-handling library for Dart and Flutter designed to manage
+                exceptions and errors
+                declaratively and safely.</p>
+            <p>Beyond simple <code>if-throw</code> statements, it maximizes debugging efficiency through <strong>Type
+                Promotion</strong> and <strong>Runtime Type
+                Tracking</strong>.</p>
+            <hr>
+            <h2 id="-key-features">🌟 Key Features</h2>
+            <ul>
+                <li><strong>Type-Based Separation</strong>: Clearly distinguishes between <code>CheckedException</code>
+                    (predictable business logic) and
+                    <code>UncheckedError</code> (unexpected system/programmer errors).
+                </li>
+                <li><strong>Intelligent Type Tracking</strong>: Analyzes the gap between the expected type
+                    (<code>$T</code>) and the actual <code>runtimeType</code> to
+                    provide precision logs like <code>Failed to parse null (Null as User)</code>.
+                </li>
+                <li><strong>Safe Type Promotion</strong>: Validates nullable data and immediately promotes it to a
+                    Non-nullable type, eliminating the
+                    need for the <code>!</code> operator.
+                </li>
+                <li><strong>Universal Conversion</strong>: Effortlessly convert standard objects or even
+                    <code>null</code> values into structured exception
+                    instances.
+                </li>
+                <li><strong>Flexible Localization</strong>: Supports mandatory English and optional local messages with
+                    clean, dynamic log formatting.
+                </li>
+            </ul>
+            <hr>
+            <h2 id="-getting-started">🚀 Getting Started</h2>
+            <h3 id="1-null-check--type-promotion-nullablecheckedx">1. Null Check &amp; Type Promotion
+                (NullableCheckedX)</h3>
+            <p>Safely validate nullable data and use it as a Non-nullable type immediately.</p>
+            <pre class="language-dart"><code class="language-dart">void processUser(User? user) {
+  // Returns as User type on success (User? -&gt; User)
+  // Since 'locale' is String?, it must be explicitly marked as 'null' if not used.
+  final currentUser = user.throwCheckedIfNull(
+    prefix: 'User',
+    message: (english: 'User profile not found.', locale: null),
+  );
+
+  print(currentUser.name); // Safe to access; type is already promoted
+}
+</code></pre>
+            <h3 id="2-condition-validation-throwablex">2. Condition Validation (ThrowableX)</h3>
+            <p>Declaratively throw exceptions when business rules are violated.</p>
+            <pre class="language-dart"><code class="language-dart">void validateAge(int age) {
+  age.throwCheckedIf(
+    (v) =&gt; v &lt; 19,
+    prefix: 'Auth',
+    message: (english: 'Adult certification required.', locale: 'Local message here'),
+  );
+}
+</code></pre>
+            <h3 id="3-complex-validation-ifornull">3. Complex Validation (IfOrNull)</h3>
+            <p>Ensure a value exists AND satisfies a specific business rule simultaneously.</p>
+            <pre class="language-dart"><code class="language-dart">void validateEmail(String? inputEmail) {
+  final validEmail = inputEmail.throwCheckedIfOrNull(
+    (v) =&gt; !v.contains('@'),
+    prefix: 'Validation',
+    message: (english: 'Invalid email format.', locale: null),
+  );
+}
+</code></pre>
+            <h3 id="4-manual-conversion-baseexceptionornullx">4. Manual Conversion (BaseExceptionOrNullX)</h3>
+            <p>Convert existing objects or <code>null</code> into exception instances. Perfect for functional patterns
+                like <code>fpdart</code>.</p>
+            <pre class="language-dart"><code class="language-dart">void checkData(String? data) {
+  if (data == null) {
+    // Convert null itself into a precision exception object
+    throw data.toCheckedException(
+      prefix: 'Data',
+      message: (english: 'Data is missing.', locale: null),
+    );
+  }
+}
+</code></pre>
+            <hr>
+            <h2 id="-precision-debugging-logs">🔍 Precision Debugging Logs</h2>
+            <p><code>error_guard</code> tracks the actual runtime type to help you identify the exact cause of failure.
+            </p>
+            <ul>
+                <li><strong>English Only (Clean Output)</strong>:
+                    <pre class="language-text"><code class="language-text">UserException: value = null (Null as User)
+[English] User profile not found.
+</code></pre>
+                </li>
+                <li><strong>With Local Message</strong>:
+                    <pre class="language-text"><code class="language-text">AuthException: value = null (Null as String?)
+[English] Token is missing.
+[Locale] 토큰이 존재하지 않습니다.
+</code></pre>
+                </li>
+            </ul>
+            <hr>
+            <h2 id="-design-philosophy">🛠️ Design Philosophy</h2>
+            <ol>
+                <li><strong>CheckedException</strong>: <strong>Predictable failures</strong> (e.g., network issues,
+                    validation errors) that the caller <strong>must</strong>
+                    handle (Catch/Map).
+                </li>
+                <li><strong>UncheckedError</strong>: <strong>Programmer errors</strong> (e.g., invalid arguments) that
+                    require code fixes. Automatically includes a
+                    <code>StackTrace</code>.
+                </li>
+            </ol>
+            <hr>
+            <h2 id="-installation--exports">📦 Installation &amp; Exports</h2>
+            <p>Add it to your <code>pubspec.yaml</code> and import <code>error_guard.dart</code> to start guarding your
+                code.</p>
+            <pre class="language-dart"><code class="language-dart">import 'package:error_guard/error_guard.dart';
+</code></pre>
+        </section>
+
+
+        <section class="summary">
+            <h2>Libraries</h2>
+            <dl>
+                <dt id="error_guard">
+                    <span class="name"><a href="error_guard/">error_guard</a></span>
+
+                </dt>
+                <dd>
+                </dd>
+
+            </dl>
+        </section>
+    </div> <!-- /.main-content -->
+    <div class="sidebar sidebar-offcanvas-left" id="dartdoc-sidebar-left">
+        <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+        <header class="hidden-l" id="header-search-sidebar">
+            <form class="search-sidebar" role="search">
+                <input autocomplete="off" class="form-control typeahead" disabled id="search-sidebar" placeholder="Loading search..."
+                       type="text">
+            </form>
+        </header>
+        <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+            <li class="self-crumb">error_guard package</li>
+        </ol>
+
+        <h5 class="hidden-xs"><span class="package-name">error_guard</span> <span class="package-kind">package</span>
+        </h5>
+        <ol>
+            <li class="section-title">Libraries</li>
+            <li><a href="error_guard/">error_guard</a></li>
+        </ol>
+
+    </div>
+    <div class="sidebar sidebar-offcanvas-right" id="dartdoc-sidebar-right">
+    </div>
+</main>
+<footer>
+  <span class="no-break">
+    error_guard
+      1.0.0
+  </span>
+
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+</body>
+</html>

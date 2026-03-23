@@ -1,0 +1,395 @@
+[
+  {
+    "name": "error_guard",
+    "qualifiedName": "error_guard",
+    "href": "error_guard/",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "BaseExceptionOrNullX",
+    "qualifiedName": "error_guard.BaseExceptionOrNullX",
+    "href": "error_guard/BaseExceptionOrNullX.html",
+    "kind": 6,
+    "packageRank": 0,
+    "desc": "Nullable 객체를 예외 객체로 변환하는 확장 기능을 제공합니다.",
+    "enclosedBy": {
+      "name": "error_guard",
+      "kind": 9,
+      "href": "error_guard/"
+    }
+  },
+  {
+    "name": "toCheckedException",
+    "qualifiedName": "error_guard.BaseExceptionOrNullX.toCheckedException",
+    "href": "error_guard/BaseExceptionOrNullX/toCheckedException.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "현재 데이터(null 포함)를 원인(value)으로 하는 CheckedException을 생성합니다.",
+    "enclosedBy": {
+      "name": "BaseExceptionOrNullX",
+      "kind": 6,
+      "href": "error_guard/BaseExceptionOrNullX.html"
+    }
+  },
+  {
+    "name": "toUncheckedError",
+    "qualifiedName": "error_guard.BaseExceptionOrNullX.toUncheckedError",
+    "href": "error_guard/BaseExceptionOrNullX/toUncheckedError.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "현재 데이터(null 포함)를 원인(value)으로 하는 UncheckedError를 생성합니다.",
+    "enclosedBy": {
+      "name": "BaseExceptionOrNullX",
+      "kind": 6,
+      "href": "error_guard/BaseExceptionOrNullX.html"
+    }
+  },
+  {
+    "name": "BaseExceptionX",
+    "qualifiedName": "error_guard.BaseExceptionX",
+    "href": "error_guard/BaseExceptionX.html",
+    "kind": 6,
+    "packageRank": 0,
+    "desc": "객체를 예외 객체로 간편하게 변환하는 확장 기능을 제공합니다.",
+    "enclosedBy": {
+      "name": "error_guard",
+      "kind": 9,
+      "href": "error_guard/"
+    }
+  },
+  {
+    "name": "toCheckedException",
+    "qualifiedName": "error_guard.BaseExceptionX.toCheckedException",
+    "href": "error_guard/BaseExceptionX/toCheckedException.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "현재 데이터를 원인(value)으로 하는 CheckedException을 생성합니다.",
+    "enclosedBy": {
+      "name": "BaseExceptionX",
+      "kind": 6,
+      "href": "error_guard/BaseExceptionX.html"
+    }
+  },
+  {
+    "name": "toUncheckedError",
+    "qualifiedName": "error_guard.BaseExceptionX.toUncheckedError",
+    "href": "error_guard/BaseExceptionX/toUncheckedError.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "현재 데이터를 원인(value)으로 하는 UncheckedError를 생성합니다.",
+    "enclosedBy": {
+      "name": "BaseExceptionX",
+      "kind": 6,
+      "href": "error_guard/BaseExceptionX.html"
+    }
+  },
+  {
+    "name": "CheckedException",
+    "qualifiedName": "error_guard.CheckedException",
+    "href": "error_guard/CheckedException-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "A class that defines 'predictable' failures occurring due to external factors.",
+    "enclosedBy": {
+      "name": "error_guard",
+      "kind": 9,
+      "href": "error_guard/"
+    }
+  },
+  {
+    "name": "createMessage",
+    "qualifiedName": "error_guard.CheckedException.createMessage",
+    "href": "error_guard/CheckedException/createMessage.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Generates a specific error message.",
+    "enclosedBy": {
+      "name": "CheckedException",
+      "kind": 3,
+      "href": "error_guard/CheckedException-class.html"
+    }
+  },
+  {
+    "name": "message",
+    "qualifiedName": "error_guard.CheckedException.message",
+    "href": "error_guard/CheckedException/message.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Detailed description messages to be exposed to users or recorded in logs.",
+    "enclosedBy": {
+      "name": "CheckedException",
+      "kind": 3,
+      "href": "error_guard/CheckedException-class.html"
+    }
+  },
+  {
+    "name": "prefix",
+    "qualifiedName": "error_guard.CheckedException.prefix",
+    "href": "error_guard/CheckedException/prefix.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "A name prefix representing the identity of the exception.",
+    "enclosedBy": {
+      "name": "CheckedException",
+      "kind": 3,
+      "href": "error_guard/CheckedException-class.html"
+    }
+  },
+  {
+    "name": "toString",
+    "qualifiedName": "error_guard.CheckedException.toString",
+    "href": "error_guard/CheckedException/toString.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Returns the standard string representation of the Exception.",
+    "enclosedBy": {
+      "name": "CheckedException",
+      "kind": 3,
+      "href": "error_guard/CheckedException-class.html"
+    }
+  },
+  {
+    "name": "value",
+    "qualifiedName": "error_guard.CheckedException.value",
+    "href": "error_guard/CheckedException/value.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "The raw data that directly caused the exception to occur.",
+    "enclosedBy": {
+      "name": "CheckedException",
+      "kind": 3,
+      "href": "error_guard/CheckedException-class.html"
+    }
+  },
+  {
+    "name": "NullableCheckedX",
+    "qualifiedName": "error_guard.NullableCheckedX",
+    "href": "error_guard/NullableCheckedX.html",
+    "kind": 6,
+    "packageRank": 0,
+    "desc": "Nullable 타입 데이터에서 안전하게 예외를 발생시키고 Non-nullable로 변환하는 확장 기능입니다.",
+    "enclosedBy": {
+      "name": "error_guard",
+      "kind": 9,
+      "href": "error_guard/"
+    }
+  },
+  {
+    "name": "throwCheckedIfNull",
+    "qualifiedName": "error_guard.NullableCheckedX.throwCheckedIfNull",
+    "href": "error_guard/NullableCheckedX/throwCheckedIfNull.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "데이터가 null일 경우 CheckedException을 발생시키고, 아닐 경우 Non-nullable 값을 반환합니다.",
+    "enclosedBy": {
+      "name": "NullableCheckedX",
+      "kind": 6,
+      "href": "error_guard/NullableCheckedX.html"
+    }
+  },
+  {
+    "name": "throwCheckedIfOrNull",
+    "qualifiedName": "error_guard.NullableCheckedX.throwCheckedIfOrNull",
+    "href": "error_guard/NullableCheckedX/throwCheckedIfOrNull.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "데이터가 null이거나 특정 조건(condition)을 만족할 경우 CheckedException을 발생시킵니다.",
+    "enclosedBy": {
+      "name": "NullableCheckedX",
+      "kind": 6,
+      "href": "error_guard/NullableCheckedX.html"
+    }
+  },
+  {
+    "name": "NullableUncheckedX",
+    "qualifiedName": "error_guard.NullableUncheckedX",
+    "href": "error_guard/NullableUncheckedX.html",
+    "kind": 6,
+    "packageRank": 0,
+    "desc": "Nullable 타입 데이터에서 시스템 오류를 발생시키고 Non-nullable로 변환하는 확장 기능입니다.",
+    "enclosedBy": {
+      "name": "error_guard",
+      "kind": 9,
+      "href": "error_guard/"
+    }
+  },
+  {
+    "name": "throwUncheckedIfNull",
+    "qualifiedName": "error_guard.NullableUncheckedX.throwUncheckedIfNull",
+    "href": "error_guard/NullableUncheckedX/throwUncheckedIfNull.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "데이터가 null일 경우 UncheckedError를 발생시키고, 아닐 경우 Non-nullable 값을 반환합니다.",
+    "enclosedBy": {
+      "name": "NullableUncheckedX",
+      "kind": 6,
+      "href": "error_guard/NullableUncheckedX.html"
+    }
+  },
+  {
+    "name": "throwUncheckedIfOrNull",
+    "qualifiedName": "error_guard.NullableUncheckedX.throwUncheckedIfOrNull",
+    "href": "error_guard/NullableUncheckedX/throwUncheckedIfOrNull.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "데이터가 null이거나 특정 조건(condition)을 만족할 경우 UncheckedError를 발생시킵니다.",
+    "enclosedBy": {
+      "name": "NullableUncheckedX",
+      "kind": 6,
+      "href": "error_guard/NullableUncheckedX.html"
+    }
+  },
+  {
+    "name": "ThrowableX",
+    "qualifiedName": "error_guard.ThrowableX",
+    "href": "error_guard/ThrowableX.html",
+    "kind": 6,
+    "packageRank": 0,
+    "desc": "Any 타입의 데이터에서 즉시 예외를 발생시킬 수 있는 확장 기능을 제공합니다.",
+    "enclosedBy": {
+      "name": "error_guard",
+      "kind": 9,
+      "href": "error_guard/"
+    }
+  },
+  {
+    "name": "throwCheckedIf",
+    "qualifiedName": "error_guard.ThrowableX.throwCheckedIf",
+    "href": "error_guard/ThrowableX/throwCheckedIf.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "특정 조건(condition)이 참일 경우 CheckedException을 발생시킵니다.",
+    "enclosedBy": {
+      "name": "ThrowableX",
+      "kind": 6,
+      "href": "error_guard/ThrowableX.html"
+    }
+  },
+  {
+    "name": "throwUncheckedIf",
+    "qualifiedName": "error_guard.ThrowableX.throwUncheckedIf",
+    "href": "error_guard/ThrowableX/throwUncheckedIf.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "특정 조건(condition)이 참일 경우 UncheckedError를 발생시킵니다.",
+    "enclosedBy": {
+      "name": "ThrowableX",
+      "kind": 6,
+      "href": "error_guard/ThrowableX.html"
+    }
+  },
+  {
+    "name": "UncheckedError",
+    "qualifiedName": "error_guard.UncheckedError",
+    "href": "error_guard/UncheckedError-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "Defines 'unexpected' errors occurring due to programmer mistakes or fatal system failures.",
+    "enclosedBy": {
+      "name": "error_guard",
+      "kind": 9,
+      "href": "error_guard/"
+    }
+  },
+  {
+    "name": "createMessage",
+    "qualifiedName": "error_guard.UncheckedError.createMessage",
+    "href": "error_guard/UncheckedError/createMessage.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Generates a specific error message.",
+    "enclosedBy": {
+      "name": "UncheckedError",
+      "kind": 3,
+      "href": "error_guard/UncheckedError-class.html"
+    }
+  },
+  {
+    "name": "message",
+    "qualifiedName": "error_guard.UncheckedError.message",
+    "href": "error_guard/UncheckedError/message.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Detailed description messages to be exposed to users or recorded in logs.",
+    "enclosedBy": {
+      "name": "UncheckedError",
+      "kind": 3,
+      "href": "error_guard/UncheckedError-class.html"
+    }
+  },
+  {
+    "name": "prefix",
+    "qualifiedName": "error_guard.UncheckedError.prefix",
+    "href": "error_guard/UncheckedError/prefix.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "A name prefix representing the identity of the exception.",
+    "enclosedBy": {
+      "name": "UncheckedError",
+      "kind": 3,
+      "href": "error_guard/UncheckedError-class.html"
+    }
+  },
+  {
+    "name": "stackTrace",
+    "qualifiedName": "error_guard.UncheckedError.stackTrace",
+    "href": "error_guard/UncheckedError/stackTrace.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "The call stack information at the point where the error occurred.",
+    "enclosedBy": {
+      "name": "UncheckedError",
+      "kind": 3,
+      "href": "error_guard/UncheckedError-class.html"
+    }
+  },
+  {
+    "name": "toString",
+    "qualifiedName": "error_guard.UncheckedError.toString",
+    "href": "error_guard/UncheckedError/toString.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Returns the standard string representation of the Error.",
+    "enclosedBy": {
+      "name": "UncheckedError",
+      "kind": 3,
+      "href": "error_guard/UncheckedError-class.html"
+    }
+  },
+  {
+    "name": "value",
+    "qualifiedName": "error_guard.UncheckedError.value",
+    "href": "error_guard/UncheckedError/value.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "The raw data that directly caused the exception to occur.",
+    "enclosedBy": {
+      "name": "UncheckedError",
+      "kind": 3,
+      "href": "error_guard/UncheckedError-class.html"
+    }
+  }
+]

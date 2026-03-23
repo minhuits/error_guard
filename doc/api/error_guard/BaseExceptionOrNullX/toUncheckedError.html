@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, height=device-height, initial-scale=1, user-scalable=no" name="viewport">
+    <meta content="API docs for the toUncheckedError method from the BaseExceptionOrNullX extension, for the Dart programming language."
+          name="description">
+    <title>toUncheckedError method - BaseExceptionOrNullX extension - error_guard library - Dart API</title>
+
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+          rel="stylesheet">
+
+    <link href="../../static-assets/github.css?v1" rel="stylesheet">
+    <link href="../../static-assets/styles.css?v1" rel="stylesheet">
+    <link href="../../static-assets/favicon.png?v1" rel="icon">
+
+</head>
+
+<body class="light-theme" data-base-href="../../" data-using-base-href="false">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+    <span class="material-symbols-outlined" id="sidenav-left-toggle" role="button" tabindex="0">menu</span>
+    <ol class="breadcrumbs gt-separated dark hidden-xs">
+        <li><a href="../../index.html">error_guard</a></li>
+        <li><a href="../../error_guard/">error_guard.dart</a></li>
+        <li><a href="../../error_guard/BaseExceptionOrNullX.html">BaseExceptionOrNullX<span class="signature">&lt;<wbr><span
+                class="type-parameter">T extends Object</span>&gt;</span></a></li>
+        <li class="self-crumb">toUncheckedError method</li>
+    </ol>
+    <div class="self-name">toUncheckedError</div>
+    <form class="search navbar-right" role="search">
+        <input autocomplete="off" class="form-control typeahead" disabled id="search-box" placeholder="Loading search..."
+               type="text">
+    </form>
+    <button aria-label="Light and dark mode toggle" class="toggle" id="theme-button"
+            title="Toggle between light and dark mode">
+    <span aria-hidden="true" class="material-symbols-outlined" id="dark-theme-button">
+      dark_mode
+    </span>
+        <span aria-hidden="true" class="material-symbols-outlined" id="light-theme-button">
+      light_mode
+    </span>
+    </button>
+</header>
+<main>
+    <div
+            class="main-content"
+            data-above-sidebar="error_guard&#47;BaseExceptionOrNullX-extension-sidebar.html"
+            data-below-sidebar=""
+            id="dartdoc-main-content">
+        <div>
+            <h1><span class="kind-method">toUncheckedError</span> method
+            </h1></div>
+
+        <section class="multi-line-signature">
+
+            <span class="returntype"><a href="../../error_guard/UncheckedError-class.html">UncheckedError</a><span
+                    class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span></span>
+            <span class="name ">toUncheckedError</span>(
+            <wbr>
+            {
+            <ol class="parameter-list">
+                <li><span class="parameter" id="toUncheckedError-param-prefix"><span>required</span> <span
+                        class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span
+                        class="parameter-name">prefix</span>, </span></li>
+                <li><span class="parameter" id="toUncheckedError-param-message"><span>required</span> <span
+                        class="type-annotation">(<span class="field">{<span class="type-annotation"><a
+                        href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span
+                        class="field-name">english</span>, </span><span class="field"><span class="type-annotation"><a
+                        href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span
+                        class="field-name">locale</span>}</span>)</span> <span
+                        class="parameter-name">message</span>, </span></li>
+                <li><span class="parameter" id="toUncheckedError-param-stackTrace"><span class="type-annotation"><a
+                        href="https://api.flutter.dev/flutter/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span
+                        class="parameter-name">stackTrace</span>, </span></li>
+            </ol>
+            })
+
+
+        </section>
+
+        <section class="desc markdown">
+            <p>현재 데이터(null 포함)를 원인(<code>value</code>)으로 하는 <code>UncheckedError</code>를 생성합니다.</p>
+            <p>시스템적으로 절대 null이면 안 되는 데이터가 null일 때 이를 에러 객체로 래핑합니다.</p>
+            <p>Creates an <code>UncheckedError</code> using the current nullable data as the cause (<code>value</code>).
+                Wraps the data into an error when it is null but systemically should not be.</p>
+        </section>
+
+
+        <section class="summary source-code" id="source">
+            <h2><span>Implementation</span></h2>
+            <pre class="language-dart"><code class="language-dart">UncheckedError&lt;T?&gt; toUncheckedError({
+  required String prefix,
+  required ({String english, String? locale}) message,
+  StackTrace? stackTrace,
+}) {
+  return GenericUncheckedError&lt;T?&gt;(
+    value: this,
+    prefix: prefix,
+    message: message,
+    stackTrace: stackTrace ?? StackTrace.current,
+  );
+}</code></pre>
+        </section>
+
+
+    </div> <!-- /.main-content -->
+    <div class="sidebar sidebar-offcanvas-left" id="dartdoc-sidebar-left">
+        <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+        <header class="hidden-l" id="header-search-sidebar">
+            <form class="search-sidebar" role="search">
+                <input autocomplete="off" class="form-control typeahead" disabled id="search-sidebar" placeholder="Loading search..."
+                       type="text">
+            </form>
+        </header>
+        <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+            <li><a href="../../index.html">error_guard</a></li>
+            <li><a href="../../error_guard/">error_guard</a></li>
+            <li><a href="../../error_guard/BaseExceptionOrNullX.html">BaseExceptionOrNullX<span class="signature">&lt;<wbr><span
+                    class="type-parameter">T extends Object</span>&gt;</span></a></li>
+            <li class="self-crumb">toUncheckedError method</li>
+        </ol>
+
+        <h5>BaseExceptionOrNullX extension on T?</h5>
+        <div id="dartdoc-sidebar-left-content"></div>
+    </div><!--/.sidebar-offcanvas-->
+    <div class="sidebar sidebar-offcanvas-right" id="dartdoc-sidebar-right">
+    </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    error_guard
+      1.0.0
+  </span>
+
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>

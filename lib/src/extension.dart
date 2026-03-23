@@ -13,7 +13,7 @@ extension BaseExceptionX<T extends Object> on T {
   /// Call this at 'predictable' failure points within business logic.
   CheckedException<T> toCheckedException({
     required String prefix,
-    ({String english, String? locale}) message = (english: '', locale: ''),
+    Messages message = (english: '', locale: ''),
   }) {
     return GenericCheckedException<T>(value: this, prefix: prefix, message: message);
   }
@@ -27,7 +27,7 @@ extension BaseExceptionX<T extends Object> on T {
   /// Call this at 'unexpected' points where programmer mistakes occur or system invariants are broken.
   UncheckedError<T> toUncheckedError({
     required String prefix,
-    ({String english, String locale}) message = (english: '', locale: ''),
+    Messages message = (english: '', locale: ''),
     StackTrace? stackTrace,
   }) {
     return GenericUncheckedError<T>(
@@ -49,10 +49,7 @@ extension BaseExceptionOrNullX<T extends Object> on T? {
   ///
   /// Creates a `CheckedException` using the current nullable data as the cause (`value`).
   /// Used when the null state itself is the cause of a business exception.
-  CheckedException<T?> toCheckedException({
-    required String prefix,
-    required ({String english, String? locale}) message,
-  }) {
+  CheckedException<T?> toCheckedException({required String prefix, required Messages message}) {
     return GenericCheckedException<T?>(value: this, prefix: prefix, message: message);
   }
 
@@ -64,7 +61,7 @@ extension BaseExceptionOrNullX<T extends Object> on T? {
   /// Wraps the data into an error when it is null but systemically should not be.
   UncheckedError<T?> toUncheckedError({
     required String prefix,
-    required ({String english, String? locale}) message,
+    required Messages message,
     StackTrace? stackTrace,
   }) {
     return GenericUncheckedError<T?>(
@@ -90,7 +87,7 @@ extension ThrowableX<T> on T {
   T throwCheckedIf(
     bool Function(T value) condition, {
     required String prefix,
-    ({String english, String locale}) message = (english: '', locale: ''),
+    Messages message = (english: '', locale: ''),
   }) {
     if (condition(this)) {
       throw GenericCheckedException(value: this, prefix: prefix, message: message);
@@ -108,7 +105,7 @@ extension ThrowableX<T> on T {
   T throwUncheckedIf(
     bool Function(T value) condition, {
     required String prefix,
-    ({String english, String locale}) message = (english: '', locale: ''),
+    Messages message = (english: '', locale: ''),
     StackTrace? stackTrace,
   }) {
     if (condition(this)) {
@@ -134,10 +131,7 @@ extension NullableCheckedX<T extends Object> on T? {
   ///
   /// Throws a `CheckedException` if the value is null, otherwise returns the non-nullable value.
   /// Mentions the specific type `T` in the error value for better debugging.
-  T throwCheckedIfNull({
-    required String prefix,
-    ({String english, String locale}) message = (english: '', locale: ''),
-  }) {
+  T throwCheckedIfNull({required String prefix, Messages message = (english: '', locale: '')}) {
     if (this == null) {
       throw GenericCheckedException(value: this, prefix: prefix, message: message);
     }
@@ -154,7 +148,7 @@ extension NullableCheckedX<T extends Object> on T? {
   T throwCheckedIfOrNull(
     bool Function(T value) condition, {
     required String prefix,
-    ({String english, String locale}) message = (english: '', locale: ''),
+    ({String english, String? locale}) message = (english: '', locale: ''),
   }) {
     final T value = throwCheckedIfNull(prefix: prefix, message: message);
 
@@ -179,7 +173,7 @@ extension NullableUncheckedX<T extends Object> on T? {
   /// Includes type `T` information to help identify programmer errors quickly.
   T throwUncheckedIfNull({
     required String prefix,
-    ({String english, String locale}) message = (english: '', locale: ''),
+    Messages message = (english: '', locale: ''),
     StackTrace? stackTrace,
   }) {
     if (this == null) {
@@ -203,7 +197,7 @@ extension NullableUncheckedX<T extends Object> on T? {
   T throwUncheckedIfOrNull(
     bool Function(T value) condition, {
     required String prefix,
-    ({String english, String locale}) message = (english: '', locale: ''),
+    Messages message = (english: '', locale: ''),
     StackTrace? stackTrace,
   }) {
     final T value = throwUncheckedIfNull(prefix: prefix, message: message, stackTrace: stackTrace);

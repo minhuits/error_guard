@@ -47,7 +47,7 @@ abstract final class BaseException<T> {
   ///
   /// - `english`: 영문 설명 (시스템 로깅 또는 글로벌 서비스용)
   /// - `locale`: 영문 이외에 언어 설명 (옵션)
-  final ({String english, String? locale}) message;
+  final Messages message;
 
   /// Internal constructor for `BaseException`.
   ///
@@ -89,3 +89,5 @@ abstract final class BaseException<T> {
     };
   }
 }
+
+typedef Messages = ({String english, String? locale});
