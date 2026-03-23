@@ -45,4 +45,67 @@ sealed class CheckedException<T> extends BaseException<T> implements Exception {
 /// Concrete implementation of `CheckedException`.
 final class GenericCheckedException<T> extends CheckedException<T> {
   const GenericCheckedException({required super.value, required super.prefix, super.message});
+
+  factory GenericCheckedException.dartCore({
+    required T value,
+    required DartExceptionMessage info,
+    String? customLocale,
+    final int? offset,
+  }) => info.create(value, locale: customLocale, offset: offset);
+}
+
+enum DartExceptionMessage {
+  format(english: 'The provided value does not match the expected format.', prefixName: 'Format'),
+  integerDivisionByZero(
+    english: 'Division resulted in non-finite value.',
+    prefixName: 'IntegerDivisionByZero',
+  );
+
+  final String english;
+  final String prefixName;
+
+  const DartExceptionMessage({required this.english, required this.prefixName});
+}
+
+extension _DartExceptionMessageX on DartExceptionMessage {
+  Messages toMessages([String? locale]) => (english: english, locale: locale);
+
+  // Enum에서 직접 예외 객체를 생성하는 기능을 부여하여 책임을 분산할 수 있습니다.
+  GenericCheckedException<T> create<T>(T value, {int? offset, String? locale}) {
+    return switch (this) {
+      DartExceptionMessage.format => _FormatException<T>(
+        value: value,
+        prefix: prefixName,
+        message: toMessages(locale),
+        offset: offset,
+      ),
+      DartExceptionMessage.integerDivisionByZero => _IntegerDivisionByZeroException<T>(
+        value: value,
+        prefix: prefixName,
+        message: toMessages(locale),
+      ),
+    };
+  }
+}
+
+// Dart Core: FormatException
+final class _FormatException<T> extends GenericCheckedException<T> {
+  final int? offset;
+
+  const _FormatException({required super.value, required super.prefix, super.message, this.offset});
+
+  @override
+  String createMessage({required String errorPrefix}) {
+    final String base = super.createMessage(errorPrefix: errorPrefix);
+    return offset != null ? '$base (at offset $offset)' : base;
+  }
+}
+
+// Dart Core: IntegerDivisionByZeroException
+final class _IntegerDivisionByZeroException<T> extends GenericCheckedException<T> {
+  const _IntegerDivisionByZeroException({
+    required super.value,
+    required super.prefix,
+    super.message,
+  });
 }

@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.0.3] - 2026-03-24
+
+### Added
+
+* **Generic Exception & Error System**: Introduced `GenericCheckedException` and `GenericUncheckedError` to provide a
+  standardized way of handling Dart core exceptions and errors.
+* **Structured Data Tracking**: Added the ability to capture the raw `value` and its `runtimeType` within exceptions to
+  enable rapid identification of type mismatches during debugging.
+* **Dart Core Mapping**: Added `DartExceptionMessage` and `DartErrorMessage` enums to provide consistent error prefixes
+  and default messages for common Dart-related failures.
+* **Specialized Internal Concrete Classes**:
+  * `_FormatException`: Captures specific `offset` data for parsing errors.
+  * `_OutOfError`: Captures `start` and `end` range information for index and range-related errors.
+  * `_IntegerDivisionByZeroException`: Specifically handles non-finite division results.
+* **Factory Methods**: Added `.dartCore()` factory constructors to both `GenericCheckedException` and
+  `GenericUncheckedError` for a unified entry point when wrapping standard Dart failures.
+
+### Changed
+
+* **Enhanced Diagnostics**: Improved `createMessage` logic to automatically include type information and structured body
+  parts (English/Locale) in the error output.
+* **Strict Encapsulation**: Concrete exception subclasses are now private (`_`), forcing the use of the centralized
+  factory system and ensuring API stability.
+* **Naming Consistency**: Updated internal enum members (e.g., `noSuchMethodNotFound`, `outOfRange`) to prevent naming
+  collisions with existing Dart top-level functions or properties.
+
+### Fixed
+
+* **Consistency in Error Output**: Fixed inconsistent string representations by overriding `toString()` to ensure all
+  `UncheckedError` instances follow the `prefix + Error` format.
+* **StackTrace Handling**: Refined the `UncheckedError` structure to ensure `StackTrace` is properly preserved and
+  exposed for logical system errors.
+
 ## [1.0.1] - 2026-03-23
 
 ### Added

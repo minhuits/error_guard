@@ -63,4 +63,90 @@ final class GenericUncheckedError<T> extends UncheckedError<T> {
     super.message,
     super.stackTrace,
   });
+
+  factory GenericUncheckedError.dartCore({
+    required T value,
+    required DartErrorMessage info,
+    StackTrace? stackTrace,
+    String? locale,
+    dynamic start,
+    dynamic end,
+  }) => info.create(value, stackTrace: stackTrace, locale: locale, start: start, end: end);
+}
+
+enum DartErrorMessage {
+  assertion(prefix: 'Assertion', message: 'Assertion failed.'),
+  type(prefix: 'Type', message: 'Unexpected type encountered.'),
+  argument(prefix: 'Argument', message: 'Invalid argument provided.'),
+  outOfRange(prefix: 'Range', message: 'Value out of valid range.'),
+  outOfIndex(prefix: 'Index', message: 'Index out of bounds.'),
+  noSuchMethodNotFound(prefix: 'NoSuchMethod', message: 'Method not found.'),
+  unsupported(prefix: 'Unsupported', message: 'The operation is not supported.'),
+  unimplemented(prefix: 'Unimplemented', message: 'The feature is not implemented yet.'),
+  state(prefix: 'State', message: 'Invalid object state for this operation.'),
+  concurrentModification(
+    prefix: 'ConcurrentModification',
+    message: 'Collection was modified during iteration.',
+  ),
+  outOfMemory(prefix: 'OutOfMemory', message: 'System ran out of memory.'),
+  stackOverflow(prefix: 'StackOverflow', message: 'Recursive call limit exceeded.');
+
+  final String prefix;
+  final String message;
+
+  const DartErrorMessage({required this.prefix, required this.message});
+}
+
+extension _DartErrorMessageX on DartErrorMessage {
+  Messages toMessages([String? locale]) => (english: message, locale: locale);
+
+  GenericUncheckedError<T> create<T>(
+    T value, {
+    StackTrace? stackTrace,
+    String? locale,
+    dynamic start, // RangeError용
+    dynamic end, // RangeError용
+  }) {
+    return switch (this) {
+      DartErrorMessage.outOfRange || DartErrorMessage.outOfIndex => _OutOfError<T>(
+        value: value,
+        prefix: prefix,
+        message: toMessages(locale),
+        stackTrace: stackTrace,
+        start: start,
+        end: end,
+      ),
+      _ => GenericUncheckedError<T>(
+        value: value,
+        prefix: prefix,
+        message: toMessages(locale),
+        stackTrace: stackTrace,
+      ),
+    };
+  }
+}
+
+final class _OutOfError<T> extends GenericUncheckedError<T> {
+  final dynamic start;
+  final dynamic end;
+
+  const _OutOfError({
+    required super.value,
+    required super.prefix,
+    super.message,
+    super.stackTrace,
+    this.start,
+    this.end,
+  });
+
+  @override
+  String createMessage({required String errorPrefix}) {
+    final String base = super.createMessage(errorPrefix: errorPrefix);
+    final List<String> rangeInfo = [
+      if (start != null) 'start: $start',
+      if (end != null) 'end: $end',
+    ];
+
+    return rangeInfo.isNotEmpty ? '$base (Range: ${rangeInfo.join(', ')})' : base;
+  }
 }

@@ -63,7 +63,7 @@ void main() {
   // ---------------------------------------------------------------------------
   print('\n[Case 3] Type Promotion');
   try {
-    final String? nullableName = 'Gemini';
+    final String nullableName = 'Gemini';
 
     // Promotes String? to String upon success
     final String name = nullableName.throwCheckedIfNull(
@@ -96,10 +96,10 @@ void main() {
   // ---------------------------------------------------------------------------
   print('\n[Case 5] Complex Validation & Promotion');
   try {
-    const String? email = 'invalid_email';
+    const String email = 'invalid_email';
 
     // Checks if null first, then checks the condition
-    final validEmail = email.throwCheckedIfOrNull(
+    final String validEmail = email.throwCheckedIfOrNull(
       (v) => !v.contains('@'),
       prefix: 'Validator',
       message: (english: 'Invalid email format', locale: '잘못된 이메일 형식입니다.'),
