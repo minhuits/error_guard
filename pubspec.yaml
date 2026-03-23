@@ -1,7 +1,9 @@
 name: error_guard
-description: "Dart's standard exception handling."
+description: A powerful, declarative error-handling library for Dart and Flutter with type promotion and precise runtime tracking.
 version: 1.0.0
-homepage: https://github.com/minhuits/error_guard
+homepage: https://github.com/your_username/error_guard
+repository: https://github.com/your_username/error_guard
+issue_tracker: https://github.com/your_username/error_guard/issues
 topics:
   - error-handling
   - exceptions
