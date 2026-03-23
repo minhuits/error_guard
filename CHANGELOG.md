@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.0.1] - 2026-03-23
+
+### Added
+
+- **Comprehensive Examples**:
+  - Added `example/main.dart` covering all core features including Type Promotion and Error/Exception separation.
+  - Added `example/fpdart_example.dart` demonstrating seamless integration with functional programming patterns using
+    `Either` and `TaskEither`.
+- **Project Metadata**: Added `homepage`, `repository`, `issue_tracker`, and `topics` to `pubspec.yaml` for better
+  discoverability on pub.dev.
+
+### Changed
+
+- **Documentation Refinement**: Updated all doc comments to use backticks (`` `value` ``) instead of brackets (
+  `[value]`) where symbol resolution was not possible, resolving all `dartdoc` warnings.
+- **Improved Type Safety**: Refined `message` record types in extension methods to ensure consistent behavior across the
+  API.
+
+### Fixed
+
+- **Unresolved Doc References**: Fixed 7 `dartdoc` warnings related to unresolved references in `BaseExceptionX` and
+  `BaseExceptionOrNullX`.
+- **TaskEither Type Inference**: Corrected a type mismatch in the fpdart example to ensure proper `CheckedException<T>`
+  propagation.
+
 All notable changes to this project will be documented in this file.
 
 ## [1.0.0] 2026-03-23

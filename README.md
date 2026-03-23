@@ -51,7 +51,7 @@ Declaratively throw exceptions when business rules are violated.
 ```dart
 void validateAge(int age) {
   age.throwCheckedIf(
-        (v) => v < 19,
+    (v) => v < 19,
     prefix: 'Auth',
     message: (english: 'Adult certification required.', locale: 'Local message here'),
   );
@@ -65,7 +65,7 @@ Ensure a value exists AND satisfies a specific business rule simultaneously.
 ```dart
 void validateEmail(String? inputEmail) {
   final validEmail = inputEmail.throwCheckedIfOrNull(
-        (v) => !v.contains('@'),
+    (v) => !v.contains('@'),
     prefix: 'Validation',
     message: (english: 'Invalid email format.', locale: null),
   );
